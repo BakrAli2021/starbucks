@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <div class="circle">
+
+        </div>
+        <header>
+            <a href="#" class="logo">
+                <img src="imgs/logo.png" alt="">
+            </a>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Menu</a>
+                </li>
+                <li>
+                    <a href="#">What's New</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </header>
+        <div class="container">
+            <div class="content">
+                <div class="title">
+                    <h1>it's not just coffe <br> it's <span>starbucks</span></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta fugit non quasi, similique quidem repudiandae sed possimus, iste quam in delectus pariatur voluptatibus dolore, iure laboriosam ad vel voluptate quis?</p>
+                    <a href="">Learn more</a>
+                </div>
+                <div class="imgbox">
+                    <img src="imgs/img1.png" alt="" height="400px" class="star">
+                </div>
+                <ul class="thumbnail">
+                    <li><img src="imgs/thumb1.png" data-img="1" data-color="#017042"></li>
+                    <li><img src="imgs/thumb2.png" data-img="2" data-color="#ea7694"></li>
+                    <li><img src="imgs/thumb3.png" data-img="3" data-color="#c33c9c"></li>
+                </ul>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script>
+        let srarimg = document.querySelectorAll('.thumbnail li img'),
+            circle = document.querySelector('.circle')
+        img = document.querySelector('.star');
+        srarimg.forEach((e) => {
+            e.addEventListener('click', (el) => {
+                img.src = `imgs/img${el.target.getAttribute('data-img')}.png`;
+                circle.style.background = `${el.target.getAttribute('data-color')}`;
+                document.querySelector('.container .content .icon').style.background = `${el.target.getAttribute('data-color')}`;
+                document.querySelector('.container .content a ').style.cssText = `background:${el.target.getAttribute('data-color')};border-color:${el.target.getAttribute('data-color')}`;
+                document.querySelector('.container .content h1 span').style.color = `${el.target.getAttribute('data-color')}`;
+                if (screen.width < 768) {
+                    document.querySelector('header').style.background = `${el.target.getAttribute('data-color')}`;
+
+                }
+
+            })
+        })
+    </script>
+</body>
+
+</html>
